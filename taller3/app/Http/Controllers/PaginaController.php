@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PaginaController extends Controller
@@ -16,8 +16,10 @@ class PaginaController extends Controller
         return view('inscripcion');
     }
 
-    public function inscritos()
-    {
-        return view('inscritos');
-    }
+public function inscritos()
+{
+    $atletas = DB::table('atletas')->get();
+
+    return view('inscritos', compact('atletas'));
+}
 }

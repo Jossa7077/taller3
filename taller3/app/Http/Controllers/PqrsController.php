@@ -3,26 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PqrsController extends Controller
 {
-    public function guardarInscripcion(Request $request)
+    public function guardar(Request $request)
     {
         // Validación del formulario
         $request->validate([
             'nombres' => 'required|string|max:100',
             'apellidos' => 'required|string|max:100',
-            'edad' => 'required|integer|min:5|max:80',
+            'edad' => 'required|numeric|min:5|max:100',
             'documento' => 'required|string|max:20',
-            'correo' => 'required|email|max:100',
-            'telefono' => 'required|string|max:15',
+            'correo' => 'required|email|max:150',
+            'telefono' => 'required|string|max:20',
             'genero' => 'required|string',
             'ciudad' => 'required|string|max:100',
-            'categoria' => 'required|string',
-            'experiencia' => 'required|string'
+            'categoria' => 'required|string|max:50',
+            'experiencia' => 'required|string|max:50',
         ]);
 
-        // Si todo sale bien
-        return redirect('/inscripcion')->with('success', 'Inscripción enviada correctamente');
+        // Guardar en la base de datos
+        DB::table('atletas')->insert([
+            'nombres' => $request->nombres,
+            'apellidos' => $request->apellidos,
+            'edad' => $request->edad,
+            'documento' => $request->documento,
+            'correo' => $request->correo,
+            'telefono' => $request->telefono,
+            'genero' => $request->genero,
+            'ciudad' => $request->ciudad,
+            'categoria' => $request->categoria,
+            'experiencia' => $request->experiencia,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect('/inscripcion')->with('success', 'Inscripción realizada correctamente');
     }
 }

@@ -18,7 +18,8 @@
         </ul>
     </div>
 @endif
-<form method="POST" action="{{ route('guardar.inscripcion') }}">
+<form method="POST" action="{{ route('guardar.atleta') }}">
+    @csrf
 
     @csrf
 

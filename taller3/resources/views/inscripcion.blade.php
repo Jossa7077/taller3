@@ -2,74 +2,146 @@
 
 @section('contenido')
 
-<h1>Formulario de Inscripción - Club de Atletismo</h1>
+<!-- Bootstrap CDN (si no está en layout) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-@if(session('success'))
-    <p style="color:green;">
-        {{ session('success') }}
-    </p>
-@endif
-@if ($errors->any())
-    <div style="color:red;">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+<div class="container my-5">
+
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">Formulario de Inscripción</h1>
+        <p class="text-muted">Completa la información para participar en la carrera</p>
     </div>
-@endif
-<form method="POST" action="{{ route('guardar.atleta') }}">
-    @csrf
 
-    @csrf
+    <!-- MENSAJES -->
+    @if(session('success'))
+        <div class="alert alert-success shadow">
+            {{ session('success') }}
+        </div>
+    @endif
 
-    <label>Nombres:</label><br>
-    <input type="text" name="nombres"><br><br>
+    @if ($errors->any())
+        <div class="alert alert-danger shadow">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-    <label>Apellidos:</label><br>
-    <input type="text" name="apellidos"><br><br>
+    <!-- FORM CARD -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
 
-    <label>Edad:</label><br>
-    <input type="number" name="edad"><br><br>
+            <div class="card shadow-lg border-0 rounded-4">
 
-    <label>Documento de identidad:</label><br>
-    <input type="text" name="documento"><br><br>
+                <!-- CABECERA DE LA CARD -->
+                <div class="card-header text-white fw-bold"
+                     style="background: linear-gradient(135deg,#2f80ed,#56ccf2);">
+                    Datos del participante
+                </div>
 
-    <label>Correo electrónico:</label><br>
-    <input type="email" name="correo"><br><br>
+                <div class="card-body p-4">
 
-    <label>Teléfono:</label><br>
-    <input type="text" name="telefono"><br><br>
+                    <form method="POST" action="{{ route('guardar.atleta') }}">
+                        @csrf
 
-    <label>Género:</label><br>
-    <select name="genero">
-        <option>Masculino</option>
-        <option>Femenino</option>
-        <option>Prefiero no decirlo</option>
-    </select>
-    <br><br>
+                        <div class="row g-3">
 
-    <label>Ciudad:</label><br>
-    <input type="text" name="ciudad"><br><br>
+                            <!-- Nombres -->
+                            <div class="col-md-6">
+                                <label class="form-label">Nombres</label>
+                                <input type="text" name="nombres" class="form-control" value="{{ old('nombres') }}">
+                            </div>
 
-    <label>Categoría:</label><br>
-    <select name="categoria">
-        <option>Infantil</option>
-        <option>Juvenil</option>
-        <option>Adulto</option>
-        <option>Master</option>
-    </select>
-    <br><br>
+                            <!-- Apellidos -->
+                            <div class="col-md-6">
+                                <label class="form-label">Apellidos</label>
+                                <input type="text" name="apellidos" class="form-control" value="{{ old('apellidos') }}">
+                            </div>
 
-    <label>¿Tiene experiencia en atletismo?</label><br>
-    <select name="experiencia">
-        <option>Sí</option>
-        <option>No</option>
-    </select>
-    <br><br>
+                            <!-- Edad -->
+                            <div class="col-md-4">
+                                <label class="form-label">Edad</label>
+                                <input type="number" name="edad" class="form-control">
+                            </div>
 
-    <button type="submit">Enviar inscripción</button>
+                            <!-- Documento -->
+                            <div class="col-md-8">
+                                <label class="form-label">Documento</label>
+                                <input type="text" name="documento" class="form-control">
+                            </div>
 
-</form>
+                            <!-- Correo -->
+                            <div class="col-md-6">
+                                <label class="form-label">Correo electrónico</label>
+                                <input type="email" name="correo" class="form-control" value="{{ old('correo') }}">
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="col-md-6">
+                                <label class="form-label">Teléfono</label>
+                                <input type="text" name="telefono" class="form-control">
+                            </div>
+
+                            <!-- Género -->
+                            <div class="col-md-6">
+                                <label class="form-label">Género</label>
+                                <select name="genero" class="form-select">
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>Prefiero no decirlo</option>
+                                </select>
+                            </div>
+
+                            <!-- Ciudad -->
+                            <div class="col-md-6">
+                                <label class="form-label">Ciudad</label>
+                                <input type="text" name="ciudad" class="form-control">
+                            </div>
+
+                            <!-- Categoría -->
+                            <div class="col-md-6">
+                                <label class="form-label">Categoría</label>
+                                <select name="categoria" class="form-select">
+                                    <option>Infantil</option>
+                                    <option>Juvenil</option>
+                                    <option>Adulto</option>
+                                    <option>Master</option>
+                                </select>
+                            </div>
+
+                            <!-- Experiencia -->
+                            <div class="col-md-6">
+                                <label class="form-label">Experiencia</label>
+                                <select name="experiencia" class="form-select">
+                                    <option>Sí</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- BOTÓN -->
+                        <div class="text-end mt-4">
+                            <button type="submit" class="btn btn-primary px-5 fw-bold shadow">
+                                Enviar inscripción
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection

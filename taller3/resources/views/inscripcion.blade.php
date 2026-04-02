@@ -2,18 +2,18 @@
 
 @section('contenido')
 
-<!-- Bootstrap CDN (si no está en layout) -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container my-5">
 
-    <!-- HEADER -->
+    
     <div class="text-center mb-5">
         <h1 class="fw-bold text-primary">Formulario de Inscripción</h1>
         <p class="text-muted">Completa la información para participar en la carrera</p>
     </div>
 
-    <!-- MENSAJES -->
+    
     @if(session('success'))
         <div class="alert alert-success shadow">
             {{ session('success') }}
@@ -30,13 +30,13 @@
         </div>
     @endif
 
-    <!-- FORM CARD -->
+    
     <div class="row justify-content-center">
         <div class="col-md-10">
 
             <div class="card shadow-lg border-0 rounded-4">
 
-                <!-- CABECERA DE LA CARD -->
+               
                 <div class="card-header text-white fw-bold"
                      style="background: linear-gradient(135deg,#2f80ed,#56ccf2);">
                     Datos del participante
@@ -123,7 +123,7 @@
 
                         </div>
 
-                        <!-- BOTÓN -->
+                        
                         <div class="text-end mt-4">
                             <button type="submit" class="btn btn-primary px-5 fw-bold shadow">
                                 Enviar inscripción
@@ -141,7 +141,7 @@
 
 </div>
 
-<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection

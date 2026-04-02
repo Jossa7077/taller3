@@ -2,12 +2,12 @@
 
 @section('contenido')
 
-<!-- Bootstrap CDN (si no está en layout) -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container my-5">
 
-    <!-- HEADER -->
+    
     <div class="text-center mb-5">
         <h1 class="fw-bold text-primary">Lista de Inscritos</h1>
         <p class="text-muted">Participantes registrados en la carrera</p>
@@ -23,7 +23,7 @@
 
         <div class="card shadow-lg border-0 rounded-4">
 
-            <!-- CABECERA -->
+            
             <div class="card-header text-white fw-bold"
                  style="background: linear-gradient(135deg,#2f80ed,#56ccf2);">
                 Participantes registrados
@@ -63,14 +63,14 @@
                                 <td>{{ $atleta->telefono }}</td>
                                 <td>{{ $atleta->ciudad }}</td>
 
-                                <!-- Categoría -->
+                               
                                 <td>
                                     <span class="badge bg-primary">
                                         {{ $atleta->categoria }}
                                     </span>
                                 </td>
 
-                                <!-- Experiencia -->
+                                
                                 <td>
                                     @if($atleta->experiencia == 'Sí')
                                         <span class="badge bg-success">Con experiencia</span>
@@ -79,7 +79,7 @@
                                     @endif
                                 </td>
 
-                                <!-- Género con colores -->
+                                
                                 <td>
                                     @if($atleta->genero == 'Femenino')
                                         <span class="badge" style="background-color:#ff4da6;">
@@ -114,7 +114,7 @@
 
 </div>
 
-<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection

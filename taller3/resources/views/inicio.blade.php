@@ -2,12 +2,12 @@
 
 @section('contenido')
 
-<!-- Bootstrap CDN (por si no está en layout) -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container my-5">
 
-    <!-- HERO -->
+    
     <div class="position-relative rounded-4 overflow-hidden shadow-lg mb-5">
 
         <img src="https://static.vecteezy.com/system/resources/thumbnails/006/992/886/small/silhouette-man-running-in-the-evening-free-photo.jpg"
@@ -21,7 +21,7 @@
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-4">
 
             <h1 class="fw-bold display-4">
-                Bienvenido al Club de Atletismo <h1 class="fw-bold display-4", style="color:#56ccf2;">-1000 de Aura</h1>
+                Bienvenido al Club de Atletismo <h1 class="fw-bold display-4" style="color:#56ccf2;">-1000 de Aura</h1>
             </h1>
 
             <p class="lead mt-3">
@@ -32,10 +32,10 @@
 
     </div>
 
-    <!-- CONTENIDO -->
+    
     <div class="row align-items-center g-5 mb-5">
 
-        <!-- TEXTO -->
+        
         <div class="col-md-6">
 
             <div class="card border-0 shadow-lg rounded-4">
@@ -67,7 +67,7 @@
 
         </div>
 
-        <!-- IMAGEN CON EFECTO -->
+        
         <div class="col-md-6 position-relative">
 
             <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4"
@@ -82,7 +82,7 @@
 
     </div>
 
-    <!-- VIDEO -->
+    
     <div class="mb-5">
 
         <div class="card border-0 shadow-lg rounded-4 text-center">
@@ -98,9 +98,14 @@
                     La constancia y el esfuerzo son la base del rendimiento deportivo.
                 </p>
 
-                <video width="700" controls class="rounded shadow">
-                    <source src="https://media.istockphoto.com/id/1335406389/video/slow-motion-rear-view-tracking-shot-of-girl-running.mp4?s=mp4-640x640-is&k=20&c=8x_hy88UeyemNbluD8YTFQFvQxcZdGJmP6KIOUjwL9E=" type="video/mp4">
-                </video>
+                
+                <iframe width="700" height="400" class="rounded shadow"
+                    src="https://www.youtube.com/embed/Pg7Jw787MgE"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
 
             </div>
 
@@ -108,7 +113,7 @@
 
     </div>
 
-    <!-- BOTÓN FINAL -->
+    
     <div class="text-center">
 
         <a href="{{ url('/inscripcion') }}" class="btn btn-primary btn-lg px-5 shadow fw-bold">
@@ -116,13 +121,14 @@
         </a>
 
     </div>
+
     <div style="text-align:center; margin-top:30px; color:#666; font-size:14px;">
-     Proyecto académico desarrollado por <strong> Sebastian Alexander Jimenez Santander - Jaider Santiago Jossa Ramos </strong>
+        Proyecto académico desarrollado por <strong> Sebastian Alexander Jimenez Santander - Jaider Santiago Jossa Ramos </strong>
     </div>
 
 </div>
 
-<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection
